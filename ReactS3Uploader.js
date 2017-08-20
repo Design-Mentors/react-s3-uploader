@@ -17,6 +17,7 @@ var ReactS3Uploader = createReactClass({
         onFinish: PropTypes.func,
         onError: PropTypes.func,
         signingUrlMethod: PropTypes.string,
+        signingUrlBody: PropTypes.object,
         signingUrlHeaders: PropTypes.oneOfType([
           PropTypes.object,
           PropTypes.func
@@ -67,6 +68,7 @@ var ReactS3Uploader = createReactClass({
             signingUrlMethod: this.props.signingUrlMethod,
             signingUrlHeaders: this.props.signingUrlHeaders,
             signingUrlQueryParams: this.props.signingUrlQueryParams,
+            signingUrlBody: this.props.signingUrlBody,
             signingUrlWithCredentials: this.props.signingUrlWithCredentials,
             uploadRequestHeaders: this.props.uploadRequestHeaders,
             contentDisposition: this.props.contentDisposition,

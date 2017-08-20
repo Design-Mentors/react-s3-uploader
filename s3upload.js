@@ -116,7 +116,7 @@ S3Upload.prototype.executeOnSignedUrl = function(file, callback) {
     if(this.signingUrlBody.variables.contentType){
        this.signingUrlBody.variables.contentType = file.type
     }
-    return xhr.send(this.signingUrlBody);
+    return xhr.send( JSON.stringify(this.signingUrlBody) );
 };
 
 S3Upload.prototype.uploadToS3 = function(file, signResult) {

@@ -110,6 +110,12 @@ S3Upload.prototype.executeOnSignedUrl = function(file, callback) {
             return this.onError('Could not contact request signing server. Status = ' + xhr.status, file);
         }
     }.bind(this);
+    if(this.signingUrlBody.variables.objectName){
+       this.signingUrlBody.variables.objectName = fileName
+    }
+    if(this.signingUrlBody.variables.contentType){
+       this.signingUrlBody.variables.contentType = file.type
+    }
     return xhr.send(this.signingUrlBody);
 };
 

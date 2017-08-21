@@ -111,16 +111,16 @@ S3Upload.prototype.executeOnSignedUrl = function(file, callback) {
         }
     }.bind(this);
     if(this.signingUrlBody.variables.objectName){
-       this.signingUrlBody.variables.objectName = fileName
-    }
-    if(this.signingUrlBody.variables.contentType){
-       this.signingUrlBody.variables.contentType = file.type
-    }
+        this.signingUrlBody.variables.objectName = fileName
+     }
+     if(this.signingUrlBody.variables.contentType){
+        this.signingUrlBody.variables.contentType = file.type
+     }
     return xhr.send( JSON.stringify(this.signingUrlBody) );
 };
 
 S3Upload.prototype.uploadToS3 = function(file, signResult) {
-    var xhr = this.createCORSRequest('PUT', signResult.signedUrl);
+    var xhr = this.createCORSRequest('PUT', signResult.data.upload.signedUrl);
     if (!xhr) {
         this.onError('CORS not supported', file);
     } else {
